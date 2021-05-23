@@ -51,8 +51,8 @@ export default {
     },
     getCartoon() {
       let number = this.getRamdom();
-      let baseUrl = "http://localhost:8080/";
-      //let baseUrl='https://xkcd.com/';
+      //let baseUrl = "http://localhost:8080/";
+      let baseUrl = "https://xkcd.com/";
       let url = baseUrl + number + "/info.0.json";
       axios.get(url).then((response) => {
         console.log(response);
