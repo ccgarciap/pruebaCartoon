@@ -1,8 +1,18 @@
 <template>
-  <div class="background">
+  <div class="fondoimg">
     <div>
       <h1 class="titulo">{{ info.title }}</h1>
       <p class="year">{{ info.year }}</p>
+      <p class="text">
+        Hola, Bienvenido en este pagina<br />
+        podras interactuar con diferentes<br />
+        estilos de commics, Ademas de ello <br />
+        podras dar una calificación de 1 a 5, <br />dependiento que tanto te
+        gusto. <br />
+        siendo 1 la calificación mas baja <br />
+        y 5 la calificación mas alta,<br />
+        esperamos te diviertas.
+      </p>
       <img class="img" v-bind:src="info.img" v-bind:alt="info.alt" />
       <div>
         <star-rating v-model="rating"></star-rating>
@@ -41,8 +51,8 @@ export default {
     },
     getCartoon() {
       let number = this.getRamdom();
-      //let baseUrl='http://localhost:8080/';
-      let baseUrl='https://xkcd.com/';
+      let baseUrl = "http://localhost:8080/";
+      //let baseUrl='https://xkcd.com/';
       let url = baseUrl + number + "/info.0.json";
       axios.get(url).then((response) => {
         console.log(response);
@@ -73,7 +83,7 @@ export default {
 }
 .titulo {
   font-style: bold;
-  color: white;
+  color: black;
   font-weight: 900;
 }
 .img {
@@ -85,21 +95,35 @@ export default {
   margin-right: auto;
   margin-bottom: 30px;
   margin-top: 21px;
-  
 }
 
 .rate {
-        font-size: 23px;
-    background: white;
-    border-radius: 9px;
-    width: 131px;
-    font-weight: 200;
-    cursor: pointer;
+  font-size: 26px;
+  background: red;
+  border-radius: 38px;
+  width: 142px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 10px;
+  color: white;
+  font-style: bold;
 }
 
-.year{
-    color: white;
-    font-weight: 400;
+.year {
+  color: black;
+  font-weight: 900;
+  font-style: bold;
+}
 
+.fondoimg {
+  background-image: url("https://thumbs.dreamstime.com/z/fondo-de-la-turquesa-p%C3%A1gina-del-c%C3%B3mic-120800082.jpg");
+}
+
+.text {
+  color: black;
+  font-weight: bolder;
+  text-align: justify;
+  text-align: center;
+  font-style: italic;
 }
 </style>
